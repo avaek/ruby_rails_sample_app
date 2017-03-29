@@ -1,4 +1,6 @@
-workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+#the commented line 3 is original, i added line 2 based on a solution on stackoverflow cos local server wasnt running
+workers Integer(ENV['WEB_CONCURRENCY'] || 2) unless Gem.win_platform?
+#workers Integer(ENV['WEB_CONCURRENCY'] || 2)
 threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
 threads threads_count, threads_count
 
