@@ -8,7 +8,8 @@ attr_accessor :remember_token
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  #the "allow nil" is for testing purposes & the above "has_secure_password" rails method still means users cant sign up without a password
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
    # Returns the hash digest of the given string.
   def User.digest(string)
